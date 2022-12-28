@@ -24,7 +24,12 @@ class FlatAdmin(admin.ModelAdmin):
 class ComplaintAdmin(admin.ModelAdmin):
     raw_id_fields = ('user', 'flat',)
 
+
 class OwnerAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'phonenumber',
+        'normalized_phonenumber',)
     raw_id_fields = ('flats',)
 
 

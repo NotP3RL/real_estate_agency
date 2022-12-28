@@ -78,6 +78,7 @@ class Complaint(models.Model):
         on_delete=models.SET_NULL)
     text = models.TextField('Текст жалобы')
 
+
 class Owner(models.Model):
     name = models.CharField('ФИО владельца', max_length=200)
     phonenumber = models.CharField('Номер владельца', max_length=20)
@@ -88,4 +89,3 @@ class Owner(models.Model):
         verbose_name='Квартиры в собственности',
         blank=True,
         db_index=True)
-
