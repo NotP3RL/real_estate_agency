@@ -6,7 +6,7 @@ from .models import Owner
 
 
 class FlatAdmin(admin.ModelAdmin):
-    search_fields = ('town',)
+    search_fields = ('town', 'id')
     readonly_fields = ["construction_year", ]
     list_display = (
         'address',
