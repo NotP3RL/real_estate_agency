@@ -65,11 +65,13 @@ class Flat(models.Model):
 class Complaint(models.Model):
     user = models.ForeignKey(
         User,
+        related_name='complaints',
         verbose_name='Кто жаловался',
         null=True,
         on_delete=models.SET_NULL)
     flat = models.ForeignKey(
         Flat,
+        related_name='complaints',
         verbose_name='Квартира, на которую пожаловались',
         null=True,
         on_delete=models.SET_NULL)
@@ -82,7 +84,7 @@ class Owner(models.Model):
     normalized_phonenumber = PhoneNumberField('Нормализованный номер владельца', blank=True)
     flats = models.ManyToManyField(
         Flat,
-        related_name='owner',
+        related_name='owners',
         verbose_name='Квартиры в собственности',
         blank=True,
         db_index=True)
