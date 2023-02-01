@@ -5,9 +5,6 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Flat(models.Model):
-    owner = models.CharField('ФИО владельца', max_length=200)
-    normalized_owners_phonenumber = PhoneNumberField('Нормализованный номер владельца', blank=True)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
     created_at = models.DateTimeField(
         'Когда создано объявление',
         default=timezone.now,
@@ -85,7 +82,7 @@ class Owner(models.Model):
     normalized_phonenumber = PhoneNumberField('Нормализованный номер владельца', blank=True)
     flats = models.ManyToManyField(
         Flat,
-        related_name='flat_owner',
+        related_name='owner',
         verbose_name='Квартиры в собственности',
         blank=True,
         db_index=True)
